@@ -111,7 +111,64 @@ list_connector.append((list_objects_lines_second['a36'].index, list_objects_line
 init_graph[list_objects_lines_second['a37'].data][list_objects_lines_second['a38'].data] = 4
 list_connector.append((list_objects_lines_second['a37'].index, list_objects_lines_second['a38'].index))
 
+# Питер
+nodes_piter = []
+list_stations_first_piter = ['Проспект Ветеранов', 'Ленинский проспект', 'Автово', 'Кировский завод', 'Нарвская',
+                             'Балтийская', 'Технологический институт-1', 'Пушкинская', 'Владимирская',
+                             'Площадь Восстания',
+                             'Чернышевская', 'Площадь Ленина', 'Выборгская', 'Лесная', 'Площадь Мужества',
+                             'Политехническая', 'Академическая', 'Гражданский проспект', 'Девяткино']
+list_objects_lines_first_piter = list_objects_lines_first = {
+    f'a{count}': Node(i, indexloc=count, colorid='#D91B27') for count, i in
+    enumerate(list_stations_first_piter, start=1)}
+
+nodes_piter.extend(list_stations_first_piter)
+list_connector_piter = []
+init_graph_piter = {}
+for node in nodes_piter:
+    init_graph_piter[node] = {}
+
+init_graph_piter[list_objects_lines_first_piter['a1'].data][list_objects_lines_first_piter['a2'].data] = 4
+list_connector_piter.append((list_objects_lines_first_piter['a1'].index, list_objects_lines_first_piter['a2'].index))
+init_graph_piter[list_objects_lines_first_piter['a2'].data][list_objects_lines_first_piter['a3'].data] = 3
+list_connector_piter.append((list_objects_lines_first_piter['a2'].index, list_objects_lines_first_piter['a3'].index))
+init_graph_piter[list_objects_lines_first_piter['a3'].data][list_objects_lines_first_piter['a4'].data] = 2
+list_connector_piter.append((list_objects_lines_first_piter['a3'].index, list_objects_lines_first_piter['a4'].index))
+init_graph_piter[list_objects_lines_first_piter['a4'].data][list_objects_lines_first_piter['a5'].data] = 4
+list_connector_piter.append((list_objects_lines_first_piter['a4'].index, list_objects_lines_first_piter['a5'].index))
+init_graph_piter[list_objects_lines_first_piter['a5'].data][list_objects_lines_first_piter['a6'].data] = 3
+list_connector_piter.append((list_objects_lines_first_piter['a5'].index, list_objects_lines_first_piter['a6'].index))
+init_graph_piter[list_objects_lines_first_piter['a6'].data][list_objects_lines_first_piter['a7'].data] = 2
+list_connector_piter.append((list_objects_lines_first_piter['a6'].index, list_objects_lines_first_piter['a7'].index))
+init_graph_piter[list_objects_lines_first_piter['a7'].data][list_objects_lines_first_piter['a8'].data] = 2
+list_connector_piter.append((list_objects_lines_first_piter['a7'].index, list_objects_lines_first_piter['a8'].index))
+init_graph_piter[list_objects_lines_first_piter['a8'].data][list_objects_lines_first_piter['a9'].data] = 2
+list_connector_piter.append((list_objects_lines_first_piter['a8'].index, list_objects_lines_first_piter['a9'].index))
+init_graph_piter[list_objects_lines_first_piter['a9'].data][list_objects_lines_first_piter['a10'].data] = 2
+list_connector_piter.append((list_objects_lines_first_piter['a9'].index, list_objects_lines_first_piter['a10'].index))
+init_graph_piter[list_objects_lines_first_piter['a10'].data][list_objects_lines_first_piter['a11'].data] = 3
+list_connector_piter.append((list_objects_lines_first_piter['a10'].index, list_objects_lines_first_piter['a11'].index))
+init_graph_piter[list_objects_lines_first_piter['a11'].data][list_objects_lines_first_piter['a12'].data] = 3
+list_connector_piter.append((list_objects_lines_first_piter['a11'].index, list_objects_lines_first_piter['a12'].index))
+init_graph_piter[list_objects_lines_first_piter['a12'].data][list_objects_lines_first_piter['a13'].data] = 2
+list_connector_piter.append((list_objects_lines_first_piter['a12'].index, list_objects_lines_first_piter['a13'].index))
+init_graph_piter[list_objects_lines_first_piter['a13'].data][list_objects_lines_first_piter['a14'].data] = 3
+list_connector_piter.append((list_objects_lines_first_piter['a13'].index, list_objects_lines_first_piter['a14'].index))
+init_graph_piter[list_objects_lines_first_piter['a14'].data][list_objects_lines_first_piter['a15'].data] = 3
+list_connector_piter.append((list_objects_lines_first_piter['a14'].index, list_objects_lines_first_piter['a15'].index))
+init_graph_piter[list_objects_lines_first_piter['a15'].data][list_objects_lines_first_piter['a16'].data] = 2
+list_connector_piter.append((list_objects_lines_first_piter['a15'].index, list_objects_lines_first_piter['a16'].index))
+init_graph_piter[list_objects_lines_first_piter['a16'].data][list_objects_lines_first_piter['a17'].data] = 3
+list_connector_piter.append((list_objects_lines_first_piter['a16'].index, list_objects_lines_first_piter['a17'].index))
+init_graph_piter[list_objects_lines_first_piter['a17'].data][list_objects_lines_first_piter['a18'].data] = 3
+list_connector_piter.append((list_objects_lines_first_piter['a17'].index, list_objects_lines_first_piter['a18'].index))
+init_graph_piter[list_objects_lines_first_piter['a18'].data][list_objects_lines_first_piter['a19'].data] = 4
+list_connector_piter.append((list_objects_lines_first_piter['a18'].index, list_objects_lines_first_piter['a19'].index))
+
+
 if __name__ == '__main__':
+    print([(list_objects_lines_first_piter[i].index, list_objects_lines_first_piter[i].data) for i in
+           list_objects_lines_first_piter])
     print(len(list_stations_first))
     print(len(list_objects_lines_second))
     print(list_objects_lines_first)
