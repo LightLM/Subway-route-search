@@ -117,7 +117,7 @@ if __name__ == '__main__':
     )
     net.add_edges(list_connector)
     net.barnes_hut(gravity=0, central_gravity=0)
-    net.show('test.html')
+    net.show('graph.html')
     graph = Graph(nodes, init_graph)
     while True:
             station = input('Введите первую станцию: ')
