@@ -1,5 +1,5 @@
 import sys
-from maker_lines import nodes, list_objects_lines_first, list_objects_lines_second, init_graph, list_connector
+from maker_lines import nodes, list_objects_lines_first, list_objects_lines_second, init_graph, list_connector, nodes_piter, list_objects_lines_first_piter, init_graph_piter, list_connector_piter
 from pyvis.network import Network
 
 
@@ -99,31 +99,61 @@ def print_result(previous_nodes, shortest_path, start_node, target_node):
 
 
 if __name__ == '__main__':
-    net = Network()  # Объект
-    net.add_nodes(
-        list(range(1, len(nodes) + 1)),
-        label=nodes,
-        color=[list_objects_lines_first[i].color for i in list_objects_lines_first] + [
-            list_objects_lines_second[i_2].color
-            for i_2 in
-            list_objects_lines_second],
-        size=[12 for i in range(len(nodes))],
-        x=[-600, -500, -350, -250, -100, 0, 0, -100, -250, -350, -500, -600, -500, -550, -600, -650, -650, -650, -650,
-           -650, -650, -650, -600, -550, -515, -455,
-           -400, -350, -275, -225, -175, -125, -70, 30, 80, 150, 110, 60],
-        y=[400, 500, 550, 550, 500, 400, 200, 100, 50, 50, 100, 200, 1250, 1200, 1150, 1100, 1050, 1000, 950, 900, 800,
-           700, 650, 600, 565, 500, 450, 400, 325,
-           275, 225, 175, 120, 20, -30, -100, -140, -185],
-    )
-    net.add_edges(list_connector)
-    net.barnes_hut(gravity=0, central_gravity=0)
-    net.show('graph.html')
-    graph = Graph(nodes, init_graph)
     while True:
-            station = input('Введите первую станцию: ')
-            station_2 = input('Введите вторую станцию: ')
-            if station and station_2 in nodes:
-                break
-            print('\nПоробуйте заново. Error: Неправильная станция!\n')
-    previous_nodes, shortest_path = dijkstra_algorithm(graph=graph, start_node=station)
-    print_result(previous_nodes, shortest_path, start_node=station, target_node=station_2)
+        city = input('Выберите город(Москва или Питер): ')
+        if city == 'Москва':
+            net = Network()  # Объект
+            net.add_nodes(
+                list(range(1, len(nodes) + 1)),
+                label=nodes,
+                color=[list_objects_lines_first[i].color for i in list_objects_lines_first] + [
+                    list_objects_lines_second[i_2].color
+                    for i_2 in
+                    list_objects_lines_second],
+                size=[12 for i in range(len(nodes))],
+                x=[-600, -500, -350, -250, -100, 0, 0, -100, -250, -350, -500, -600, -500, -550, -600, -650, -650, -650,
+                   -650,
+                   -650, -650, -650, -600, -550, -515, -455,
+                   -400, -350, -275, -225, -175, -125, -70, 30, 80, 150, 110, 60],
+                y=[400, 500, 550, 550, 500, 400, 200, 100, 50, 50, 100, 200, 1250, 1200, 1150, 1100, 1050, 1000, 950,
+                   900, 800,
+                   700, 650, 600, 565, 500, 450, 400, 325,
+                   275, 225, 175, 120, 20, -30, -100, -140, -185],
+            )
+            net.add_edges(list_connector)
+            net.barnes_hut(gravity=0, central_gravity=0)
+            net.show('graph_moscow.html')
+            graph = Graph(nodes, init_graph)
+            while True:
+                station = input('Введите первую станцию: ')
+                station_2 = input('Введите вторую станцию: ')
+                if station and station_2 in nodes:
+                    break
+                print('\nПоробуйте заново. Error: Неправильная станция!\n')
+            previous_nodes, shortest_path = dijkstra_algorithm(graph=graph, start_node=station)
+            print_result(previous_nodes, shortest_path, start_node=station, target_node=station_2)
+            break
+
+
+        elif city == 'Санкт-Петербург' or city == 'Питер':
+            net = Network()  # Объект
+            net.add_nodes(list(range(1, len(nodes_piter) + 1)),
+                          label=nodes_piter,
+                          color=[list_objects_lines_first_piter[i].color for i in list_objects_lines_first_piter],
+                          size=[12 for i in range(len(nodes_piter))],
+                          )
+            net.add_edges(list_connector_piter)
+            net.barnes_hut(gravity=0, central_gravity=0)
+            net.show('graph_piter.html')
+            graph_piter = Graph(nodes_piter, init_graph_piter)
+            while True:
+                station_piter = input('Введите первую станцию: ')
+                station_2_piter = input('Введите вторую станцию: ')
+                if station_piter and station_2_piter in nodes_piter:
+                    break
+                print('\nПоробуйте заново. Error: Неправильная станция!\n')
+            previous_nodes, shortest_path = dijkstra_algorithm(graph=graph_piter, start_node=station_piter)
+            print_result(previous_nodes, shortest_path, start_node=station_piter, target_node=station_2_piter)
+            break
+        else:
+            print('\nError: Неправильно набран город. Поробуйте еще раз.')
