@@ -108,16 +108,22 @@ if __name__ == '__main__':
             for i_2 in
             list_objects_lines_second],
         size=[12 for i in range(len(nodes))],
-        x=[-600, -500, -350, -250, -100, 0, 0, -100, -250, -350, -500, -600, -500, -550, -600, -650, -650, -650, -650, -650, -650, -650, -600, -550, -515, -455,
+        x=[-600, -500, -350, -250, -100, 0, 0, -100, -250, -350, -500, -600, -500, -550, -600, -650, -650, -650, -650,
+           -650, -650, -650, -600, -550, -515, -455,
            -400, -350, -275, -225, -175, -125, -70, 30, 80, 150, 110, 60],
-        y=[400, 500, 550, 550, 500, 400, 200, 100, 50, 50, 100, 200, 1250, 1200, 1150, 1100, 1050, 1000, 950, 900, 800, 700, 650, 600, 565, 500, 450, 400, 325,
+        y=[400, 500, 550, 550, 500, 400, 200, 100, 50, 50, 100, 200, 1250, 1200, 1150, 1100, 1050, 1000, 950, 900, 800,
+           700, 650, 600, 565, 500, 450, 400, 325,
            275, 225, 175, 120, 20, -30, -100, -140, -185],
     )
     net.add_edges(list_connector)
     net.barnes_hut(gravity=0, central_gravity=0)
     net.show('test.html')
     graph = Graph(nodes, init_graph)
-    station = input('Введите первую станцию: ')
-    station_2 = input('Введите вторую станцию: ')
+    while True:
+            station = input('Введите первую станцию: ')
+            station_2 = input('Введите вторую станцию: ')
+            if station and station_2 in nodes:
+                break
+            print('\nПоробуйте заново. Error: Неправильная станция!\n')
     previous_nodes, shortest_path = dijkstra_algorithm(graph=graph, start_node=station)
     print_result(previous_nodes, shortest_path, start_node=station, target_node=station_2)
