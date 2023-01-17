@@ -106,10 +106,7 @@ if __name__ == '__main__':
             net.add_nodes(
                 list(range(1, len(nodes) + 1)),
                 label=nodes,
-                color=[list_objects_lines_first[i].color for i in list_objects_lines_first] + [
-                    list_objects_lines_second[i_2].color
-                    for i_2 in
-                    list_objects_lines_second],
+                color=[list_objects_lines_first[i].color for i in list_objects_lines_first] + [list_objects_lines_second[i].color for i in list_objects_lines_second],
                 size=[12 for i in range(len(nodes))],
                 x=[-600, -500, -350, -250, -100, 0, 0, -100, -250, -350, -500, -600, -500, -550, -600, -650, -650, -650,
                    -650,

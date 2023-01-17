@@ -118,7 +118,7 @@ list_stations_first_piter = ['Проспект Ветеранов', 'Ленин�
                              'Площадь Восстания',
                              'Чернышевская', 'Площадь Ленина', 'Выборгская', 'Лесная', 'Площадь Мужества',
                              'Политехническая', 'Академическая', 'Гражданский проспект', 'Девяткино']
-list_objects_lines_first_piter = list_objects_lines_first = {
+list_objects_lines_first_piter = {
     f'a{count}': Node(i, indexloc=count, colorid='#D91B27') for count, i in
     enumerate(list_stations_first_piter, start=1)}
 
